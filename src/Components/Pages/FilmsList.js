@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
 import Paginator from '../Paginator';
 import {
   BrowserRouter as Router,
@@ -14,9 +17,12 @@ class FilmsList extends Component {
     super(props);
 
     this.state = {
-      films: []
+      films: [],
+      open: false
     };
   }
+
+  handleToggle = () => this.setState({ open: !this.state.open });
 
   componentDidMount() {
     // this.setState({ isFetching: true });
@@ -43,8 +49,17 @@ class FilmsList extends Component {
     const { films } = this.state;
 
     return (
-      <div className="FilmsList">
-        {films.map((film, index) => <Film film={film} key={index} />)}
+      <div>
+        <div className="FilmsList">
+          {films.map((film, index) => <Film film={film} key={index} />)}
+        </div>
+        <div>
+          <RaisedButton label="Toggle Drawer" onClick={this.handleToggle} />
+          <Drawer width={800} openSecondary={true} open={this.state.open}>
+            <AppBar title="AppBar" />
+            <img src="http://goingconcern.com/wp-content/uploads/files/dualmonitors.jpeg" />
+          </Drawer>
+        </div>
       </div>
     );
   }

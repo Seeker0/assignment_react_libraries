@@ -63,7 +63,7 @@ class PeopleList extends Component {
     return (
       <div className="container">
         <Paginator previous={previous} next={next} callback={this.onClick} />
-        <div className="FilmsList">
+        <div>
           {people.map((person, index) => (
             <Person person={person} key={index} />
           ))}

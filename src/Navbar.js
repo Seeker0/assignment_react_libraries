@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Tabs, Tab } from 'material-ui/Tabs';
+import ActionPrego from 'material-ui/svg-icons/action/pregnant-woman';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,6 +18,7 @@ class Navbar extends Component {
     return (
       <div className="Navbar grid">
         <NavLink activeClassName="active" exact to="/">
+          <Tab icon={<ActionPrego className="muidocs-icon-action-home" />} />
           Home
         </NavLink>{' '}
         <NavLink activeClassName="active" exact to="/films">

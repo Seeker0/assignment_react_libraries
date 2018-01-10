@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from 'material-ui/Card';
+import {
   BrowserRouter as Router,
   Route,
   NavLink,
@@ -11,24 +19,20 @@ const Person = ({ person }) => {
   return (
     <div>
       <div className="row">
-        <div className="card col-md-5 grid Film">
-          <h4>{person.name}</h4>
+        <Card>
+          <CardHeader title={person.name} subtitle="Stubtitles!" />
           <p>Films: </p>
-          <div>
-            {person.films.map((film) => {
-                return (
-                  <div>
-                    <a href={film}> {film} </a>
-                    <br />
-                  </div>
-                )
-              })
-            }
-          </div>
-          <p>
-            <br />
-          </p>
-        </div>
+          <CardText>
+            {person.films.map(film => {
+              return (
+                <div>
+                  <a href={film}> {film} </a>
+                  <br />
+                </div>
+              );
+            })}
+          </CardText>
+        </Card>
       </div>
     </div>
   );
